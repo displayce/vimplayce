@@ -1,13 +1,5 @@
 # vimplayce
 
-## how to install
-```sh
-# install to your config folder
-just install
-
-nvim
-```
-
 ## plugins
 List of installed plugins :
 - nvim-lspconfig
