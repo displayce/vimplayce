@@ -1,5 +1,5 @@
 local imports = {
-	'packer.init'
+	'plugins'
 }
 
 for _, import in pairs(imports) do

@@ -9,26 +9,29 @@ local ensure_packer = function()
   return false
 end
 
-local uok, user = pcall(require, 'user')
+local uok, user = pcall(require, 'plugins.user')
 if not uok then
-	vim.notify_once('Couldn\'t load plugins', vim.log.levels.WARN)
+	vim.notify('Couldn\'t load user plugins', vim.log.levels.WARN)
 	return
 end
 
-local lok, lsp = pcall(require, 'lsp')
+local lok, lsp = pcall(require, 'plugins.lsp')
 if not lok then
-	vim.notify_once('Couldn\'t load plugins', vim.log.levels.WARN)
+	vim.notify('Couldn\'t load lsp plugins', vim.log.levels.WARN)
 	return
 end
 
+local is_packer_bootstraped = ensure_packer()
 local packer = require('packer')
 return packer.startup(function(use)
+	use 'wbthomason/packer.nvim'
+
 	local plugins = vim.list_extend(user, lsp)
 	for _, plugin in pairs(plugins) do
 		use(plugin)
 	end
 
-	if ensure_packer() then
+	if is_packer_bootstraped then
 		packer.sync()
 	end
 end)
