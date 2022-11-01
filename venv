@@ -6,75 +6,75 @@
 # can be find in the dev folder.
 
 usage () {
-	cat <<-HELP
-usage: source ./dev/sh [OPTION]...
+    cat <<HELP
+usage: ./venv [OPTION]...
 
-OPTION:
-	--state=STATE
-		STATE neovim directory. See XDG_STATE_HOME in neovim man page.
-	
-	--data=DATA
-		DATA neovim directory. See XDG_DATA_HOME in neovim man page.
-	
-	--config=CONFIG
-		CONFIG neovim directory. See XDG_CONFIG_HOME in neovim man page.
-	
-	--shell=SHELL
-		SHELL will be launched instead of \$SHELL.
-	
-	--ps1=FMT
-		Set PS1 env in virtual shell to FMT.
+    OPTION:
+	    --state=STATE
+		    STATE neovim directory. See XDG_STATE_HOME in neovim man page.
 
-	-h, --help
-		Show this help message.
+	    --data=DATA
+		    DATA neovim directory. See XDG_DATA_HOME in neovim man page.
 
-	-C, --clean
-		Clean vimplayce directory
+	    --config=CONFIG
+		    CONFIG neovim directory. See XDG_CONFIG_HOME in neovim man page.
+
+	    --shell=SHELL
+		    SHELL will be launched instead of \$SHELL.
+
+	    --ps1=FMT
+		    Set PS1 env in virtual shell to FMT.
+
+	    -h, --help
+		    Show this help message.
+
+	    -C, --clean
+		    Clean vimplayce directory
 HELP
 }
 
 setoption () {
-	OPTION=$1
-	VALUE=$2
-	case $OPTION in
-		'-h'|'--help')
-			usage
-			exit
-			;;
+    OPTION=$1
+    VALUE=$2
+    case $OPTION in
+	'-h'|'--help')
+	    usage
+	    exit
+	    ;;
 
-		'-C'|'--clean')
-			echo 'removing dev subfolders'
-			rm -r dev/* 2>/dev/null || echo 'dev had no subfolders'
-			echo 'cleanup finished'
-			exit
-			;;
+	'-C'|'--clean')
+	    echo 'removing dev subfolders'
+	    rm -r dev/* 2>/dev/null || echo 'dev had no subfolders'
+	    echo 'cleanup finished'
+	    exit
+	    ;;
 
-		'--ps1')
-			PS1=$VALUE
-			;;
+	'--ps1')
+	    PS1=$VALUE
+	    ;;
 
-		'--shell')
-			CUSTOM_SHELL=$VALUE
-			;;
+	'--shell')
+	    CUSTOM_SHELL=$VALUE
+	    ;;
 
-		'--config')
-			XDG_CONFIG_HOME=$VALUE
-			;;
+	'--config')
+	    XDG_CONFIG_HOME=$VALUE
+	    ;;
 
-		'--state')
-			XDG_STATE_HOME=$VALUE
-			;;
+	'--state')
+	    XDG_STATE_HOME=$VALUE
+	    ;;
 
-		'--data')
-			XDG_DATA_HOME=$VALUE
-			;;
+	'--data')
+	    XDG_DATA_HOME=$VALUE
+	    ;;
 
-		'*')
-			echo "option $1 is not valid."
-			usage
-			exit 1
-			;;
-	esac
+	'*')
+	    echo "option $1 is not valid."
+	    usage
+	    exit 1
+	    ;;
+    esac
 }
 
 export PS1="(nvim) [\u@\W] $ "
@@ -85,16 +85,16 @@ export CUSTOM_SHELL=$SHELL
 
 # Parse options
 while [ "$#" -gt 0 ]; do
-	# removing possible value from the option
-	OPTION=${1%=*}
-	VALUE=${1#*=}
-	if [ "$VALUE" = "$OPTION" ] && [ -n "$2" ] && [ "${2:0:1}" != '-' ]; then
-		VALUE=$2
-		shift
-	fi
-
-	setoption $OPTION $VALUE
+    # removing possible value from the option
+    OPTION=${1%=*}
+    VALUE=${1#*=}
+    if [ "$VALUE" = "$OPTION" ] && [ -n "$2" ] && [ "${2:0:1}" != '-' ]; then
+	VALUE=$2
 	shift
+    fi
+
+    setoption $OPTION $VALUE
+    shift
 done
 
 # Start the virtual shell for neovim testing

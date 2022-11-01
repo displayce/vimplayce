@@ -2,7 +2,12 @@
 
 ## plugins
 List of installed plugins :
-- nvim-lspconfig
+- [packer.nvim][1]
+- [nvim-lspconfig][2]
+-
+
+[1]: https://github.com/wbthomason/packer.nvim
+[2]: https://github.com/neovim/nvim-lspconfig
 
 ## development
 ### venv

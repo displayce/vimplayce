@@ -1,7 +1,8 @@
 local imports = {
-	'plugins'
+    'plugins',
+    'config',
 }
 
 for _, import in pairs(imports) do
-	require(import)
+    require(import)
 end
