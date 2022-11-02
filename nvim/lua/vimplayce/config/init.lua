@@ -1,5 +1,8 @@
 -- Change colorscheme to everforest
-vim.cmd[[colorscheme everforest]]
+local ok = pcall(vim.cmd, [[colorscheme everforest]])
+if not ok then
+    vim.notify[[Couldn't load colorscheme, using default one.]]
+end
 
 -- Import custom configs
 for _, import in pairs({
@@ -7,7 +10,7 @@ for _, import in pairs({
     'highlight',
     'keymap',
 }) do
-    local ok, _ = pcall(require, 'config.' .. import)
+    local ok, _ = pcall(require, 'vimplayce.config.' .. import)
     if not ok then
 	vim.notify('Could\'t import ' .. import .. ' configuration file.', vim.log.levels.WARN)
     end

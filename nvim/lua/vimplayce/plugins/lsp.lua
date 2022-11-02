@@ -17,12 +17,12 @@ return {
 	config = function()
 	    local lspconfig = require('lspconfig')
 
-	    local aok, attach = pcall(require, 'plugins.attach')
+	    local aok, attach = pcall(require, 'vimplayce.plugins.attach')
 	    if not aok then
 		vim.notify([[Couldn't load on_attach function.]], vim.log.levels.WARN)
 	    end
 
-	    local sok, servers = pcall(require, 'config.servers')
+	    local sok, servers = pcall(require, 'vimplayce.config.servers')
 	    if not sok then
 		vim.notify([[Couldn't load language servers configuration.]], vim.log.levels.WARN)
 		return

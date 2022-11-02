@@ -1,5 +1,5 @@
 -- Bootstrapping function
-local ensure_packer = function()
+local function ensure_packer()
     local fn = vim.fn
     local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
     if fn.empty(fn.glob(install_path)) > 0 then
@@ -11,13 +11,13 @@ local ensure_packer = function()
 end
 
 -- pcall require user/lsp plugins so everything won't crash
-local uok, user = pcall(require, 'plugins.user')
+local uok, user = pcall(require, 'vimplayce.plugins.user')
 if not uok then
     vim.notify([[Couldn't load user plugins]], vim.log.levels.WARN)
     return
 end
 
-local lok, lsp = pcall(require, 'plugins.lsp')
+local lok, lsp = pcall(require, 'vimplayce.plugins.lsp')
 if not lok then
     vim.notify([[Couldn't load lsp plugins]], vim.log.levels.WARN)
     return
@@ -26,18 +26,6 @@ end
 -- bootstrap + require packer
 local is_packer_bootstraped = ensure_packer()
 local packer = require('packer')
-
--- augroup and autocmd for automatic compile
-vim.api.nvim_create_augroup('PackerPlugins', {
-    clear = true,
-})
-vim.api.nvim_create_autocmd('BufWritePost', {
-    group = 'PackerPlugins',
-    pattern = '*/plugins/*.lua',
-    callback = function(args)
-	vim.cmd('source ' .. args.file .. ' | PackerCompile')
-    end
-})
 
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
@@ -48,6 +36,20 @@ return packer.startup(function(use)
     end
 
     if is_packer_bootstraped then
+	-- automatically reload vimplayce configuration
+	-- and jump to its homepage.
+	vim.api.nvim_create_autocmd('User', {
+	    pattern = 'PackerComplete',
+	    once = true,
+	    callback = function()
+		vim.api.nvim_win_close(0, true)
+		require('vimplayce.core.utils').reaload_config()
+		require('mini.starter').open()
+	    end
+	})
+
+	-- first sync
 	packer.sync()
     end
+
 end)

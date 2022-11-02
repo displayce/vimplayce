@@ -29,4 +29,5 @@ nerd-font-list: nerd-font
 
 clean:
 	rm -rf dev/
+	rm -rf nvim/plugin
 	mkdir dev
