@@ -27,3 +27,6 @@ nerd-font-specify FONT: nerd-font
 nerd-font-list: nerd-font
     ./install.sh --list
 
+clean:
+	rm -rf dev/
+	mkdir dev

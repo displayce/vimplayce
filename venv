@@ -27,9 +27,6 @@ usage: ./venv [OPTION]...
 
 	    -h, --help
 		    Show this help message.
-
-	    -C, --clean
-		    Clean vimplayce directory
 HELP
 }
 
@@ -39,13 +36,6 @@ setoption () {
     case $OPTION in
 	'-h'|'--help')
 	    usage
-	    exit
-	    ;;
-
-	'-C'|'--clean')
-	    echo 'removing dev subfolders'
-	    rm -r dev/* 2>/dev/null || echo 'dev had no subfolders'
-	    echo 'cleanup finished'
 	    exit
 	    ;;
 
