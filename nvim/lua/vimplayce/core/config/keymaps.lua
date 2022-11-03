@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
-    -- Disable space for leader usage
+-- Disable space for leader usage
 map('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -17,4 +17,3 @@ map({ 'n', 'v' }, '<leader>p', '"+p', opts)
 map('n', '<leader>bh', ':bp<cr>', opts)
 map('n', '<leader>bl', ':bn<cr>', opts)
 map('n', '<leader>bb', ':buffers<cr>:buffer ', { noremap = true })
-
