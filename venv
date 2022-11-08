@@ -36,7 +36,7 @@ setoption () {
     case $OPTION in
 	'-h'|'--help')
 	    usage
-	    exit
+	    exit 0
 	    ;;
 
 	'--ps1')
@@ -79,8 +79,8 @@ while [ "$#" -gt 0 ]; do
     OPTION=${1%=*}
     VALUE=${1#*=}
     if [ "$VALUE" = "$OPTION" ] && [ -n "$2" ] && [ "${2:0:1}" != '-' ]; then
-	VALUE=$2
-	shift
+		VALUE=$2
+		shift
     fi
 
     setoption $OPTION $VALUE
@@ -88,4 +88,4 @@ while [ "$#" -gt 0 ]; do
 done
 
 # Start the virtual shell for neovim testing
-$CUSTOM_SHELL
+$CUSTOM_SHELL || echo "invalid shell"
