@@ -7,4 +7,7 @@ vim.o.relativenumber = true
 
 vim.o.termguicolors = true
 vim.o.laststatus = 3
-vim.o.scolloff = 5
+vim.o.scrolloff = 5
+
+vim.o.foldmethod = 'syntax'
+vim.o.foldenable = false

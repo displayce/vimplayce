@@ -45,6 +45,9 @@ return {
 		'lewis6991/gitsigns.nvim',
 		config = require('vimplayce.plugins.setups.gitsigns')
 	},
+	{
+		'sheerun/vim-polyglot',
+	},
 
 
 	-- lsp related
