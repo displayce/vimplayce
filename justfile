@@ -1,31 +1,18 @@
-alias sym := install-symbolic
-alias usym := uninstall-symbolic
+CONFIG_DIR := "/tmp"
+NVIM_DIR := CONFIG_DIR / "nvim"
 
-install:
-    cp -R nvim $HOME/.config
+install SYMBOLIC="":
+	[[ -z "{{SYMBOLIC}}" ]] \
+	&& cp -R nvim {{CONFIG_DIR}} \
+	|| (PUSHPWD=$(pwd) && pushd {{CONFIG_DIR}} && ln -s $PUSHPWD/nvim nvim && popd)
 
-install-symbolic:
-    ln -s $(pwd)/nvim $HOME/.config/nvim
+uninstall SYMBOLIC="":
+	[[ -z {{SYMBOLIC}} ]] \
+	&& rm -r {{NVIM_DIR}} \
+	|| rm    {{NVIM_DIR}} 
 
-# unistall must be done manually
-install-to DIR:
-    echo {{DIR}} 
-
-uninstall:
-    rm -r $HOME/.config/nvim/
-
-uninstall-symbolic:
-    rm $HOME/.config/nvim
-
-# Nerd Font install
-nerd-font:
-    git clone --depth 1 git@github.com:ryanoasis/nerd-fonts
-
-nerd-font-specify FONT: nerd-font
-    ./install.sh {{FONT}}
-
-nerd-font-list: nerd-font
-    ./install.sh --list
+change-config CONFIG:
+	sed -ie '0,/"[^"]*"/s//"{{replace(CONFIG, '/', '\/')}}"/' justfile
 
 clean:
 	rm -rf dev/
