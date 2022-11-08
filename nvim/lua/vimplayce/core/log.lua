@@ -1,28 +1,27 @@
-local L = {}
+local M = {}
 
 local function join(...)
-	local params = table.pack(...)
-	return table.concat(params, ' ')
+	return table.concat({...}, ' ')
 end
 
-function L.info(...)
+function M.info(...)
 	local msg = join(...)
 	vim.notify(msg, vim.log.levels.INFO)
 end
 
-function L.debug(...)
+function M.debug(...)
 	local msg = join(...)
 	vim.notify(msg, vim.log.levels.DEBUG)
 end
 
-function L.warn(...)
+function M.warn(...)
 	local msg = join(...)
 	vim.notify(msg, vim.log.levels.WARN)
 end
 
-function L.error(...)
+function M.error(...)
 	local msg = join(...)
 	vim.notify(msg, vim.log.levels.ERROR)
 end
 
-return L
+return M
