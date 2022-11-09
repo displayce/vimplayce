@@ -1,4 +1,4 @@
-CONFIG_DIR := "/tmp"
+CONFIG_DIR := "$HOME/.config"
 NVIM_DIR := CONFIG_DIR / "nvim"
 
 install SYMBOLIC="":
