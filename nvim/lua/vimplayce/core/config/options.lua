@@ -8,6 +8,8 @@ vim.o.relativenumber = true
 vim.o.termguicolors = true
 vim.o.laststatus = 3
 vim.o.scrolloff = 5
+vim.o.cursorline = true
 
+vim.o.list = true
 vim.o.foldmethod = 'syntax'
 vim.o.foldenable = false
