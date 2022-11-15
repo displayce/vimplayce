@@ -1,5 +1,6 @@
 return {
 	"gopls",
+	"pylsp",
 
 	{
 		name = "sumneko_lua",
