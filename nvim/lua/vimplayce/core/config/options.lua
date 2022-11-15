@@ -1,6 +1,7 @@
-vim.o.signcolumn='yes:1'
-vim.o.shiftwidth=4
-vim.o.tabline=4
+vim.o.signcolumn = "yes:1"
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.expandtab = true
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -10,6 +11,7 @@ vim.o.laststatus = 3
 vim.o.scrolloff = 5
 vim.o.cursorline = true
 
+vim.o.listchars = "tab:··"
 vim.o.list = true
-vim.o.foldmethod = 'syntax'
+vim.o.foldmethod = "syntax"
 vim.o.foldenable = false

@@ -1,8 +1,6 @@
 local M = {}
 
-local function join(...)
-	return table.concat({...}, ' ')
-end
+local function join(...) return table.concat({ ... }, " ") end
 
 function M.info(...)
 	local msg = join(...)

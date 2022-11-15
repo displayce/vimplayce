@@ -1,2 +1,2 @@
 -- import vimplayce configuration and plugins
-require('vimplayce')
+require "vimplayce"

@@ -1,4 +1,4 @@
-local files = {"keymaps", "highlights", "options"}
+local files = { "keymaps", "highlights", "options" }
 for _, file in pairs(files) do
 	local ok, _ = pcall(require, "vimplayce.core.config." .. file)
 	if not ok then
