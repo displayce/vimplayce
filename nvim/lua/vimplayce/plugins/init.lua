@@ -57,4 +57,9 @@ return {
 		"neovim/nvim-lspconfig",
 		config = require "vimplayce.plugins.setups.lspconfig",
 	},
+	{
+		"jose-elias-alvarez/null-ls.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = require "vimplayce.plugins.setups.null-ls",
+	},
 }

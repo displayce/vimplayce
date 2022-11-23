@@ -14,13 +14,16 @@ return function()
 
 	for _, server in pairs(servers) do
 		local name = server
-		local config = { on_attach = attach }
+		local config = {}
 
 		if type(server) == "table" then
 			name = server.name
-			config = vim.tbl_deep_extend("force", config, server.config)
+			config = server.config
 		end
 
-		lspconfig[name].setup(config)
+		lspconfig[name].setup({
+			on_attach = attach,
+			settings = config,
+		})
 	end
 end
