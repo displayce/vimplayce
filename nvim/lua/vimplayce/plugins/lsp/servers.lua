@@ -1,5 +1,6 @@
 return {
 	"gopls",
+	"vls",
 
 	{
 		name = "pylsp",

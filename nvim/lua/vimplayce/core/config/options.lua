@@ -15,3 +15,5 @@ vim.o.listchars = "tab:··"
 vim.o.list = true
 vim.o.foldmethod = "syntax"
 vim.o.foldenable = false
+
+vim.o.undofile = true
