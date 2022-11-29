@@ -13,7 +13,7 @@ vim.o.cursorline = true
 
 vim.o.listchars = "tab:··"
 vim.o.list = true
-vim.o.foldmethod = "syntax"
+vim.o.foldmethod = "indent"
 vim.o.foldenable = false
 
 vim.o.undofile = true
