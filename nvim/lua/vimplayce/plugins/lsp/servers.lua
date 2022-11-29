@@ -1,6 +1,6 @@
 return {
 	"gopls",
-	"vls",
+	-- "vls", -- not working properly rn
 
 	{
 		name = "pylsp",
