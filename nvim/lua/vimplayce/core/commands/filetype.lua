@@ -1,9 +1,10 @@
 local filetype_group = vim.api.nvim_create_augroup("UserFiletypeCmd", { clear = true })
 
 local function filetype_autocmd(filetype, callback)
+	local ft_pattern = type(filetype) == "table" and filetype or { filetype }
 	local opts = {
 		group = filetype_group,
-		pattern = { filetype },
+		pattern = ft_pattern,
 	}
 
 	local cb = type(callback)
@@ -18,4 +19,4 @@ local function filetype_autocmd(filetype, callback)
 	vim.api.nvim_create_autocmd("Filetype", opts)
 end
 
-filetype_autocmd("markdown", "set spell")
+filetype_autocmd({ "markdown", "gitcommit" }, "set spell")
