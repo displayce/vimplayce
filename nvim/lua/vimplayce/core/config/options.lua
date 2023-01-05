@@ -17,3 +17,6 @@ vim.o.foldmethod = "indent"
 vim.o.foldenable = false
 
 vim.o.undofile = true
+
+vim.o.splitbellow = true
+vim.o.splitright = true
