@@ -1,5 +1,6 @@
 return {
 	"gopls",
+	"ocamlls",
 	"phpactor",
 	-- "vls", -- not working properly rn
 
