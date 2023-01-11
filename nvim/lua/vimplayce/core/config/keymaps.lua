@@ -19,22 +19,23 @@ map("n", "<leader>bl", ":bn<cr>", opts)
 map("n", "<leader>bb", ":buffers<cr>:buffer ", { noremap = true })
 
 -- Window mappings
+-- closing
+map("n", "<leader>wc", "<C-W>c", opts)
+map("n", "<leader>wo", "<C-W>o", opts)
 -- splits
-map("n", "<leader>wsv", "<C-W>v", opts)
-map("n", "<leader>wsh", "<C-W>s", opts)
-map("n", "<leader>wsn", ":vnew ", { noremap = true })
-map("n", "<leader>wsc", "<C-W>c", opts)
-map("n", "<leader>wso", "<C-W>o", opts)
+map("n", "<leader>wv", "<C-W>v", opts)
+map("n", "<leader>ws", "<C-W>s", opts)
+map("n", "<leader>wn", ":vnew ", { noremap = true })
 -- select
 map("n", "<leader>wh", "<C-W>h", opts)
 map("n", "<leader>wj", "<C-W>j", opts)
 map("n", "<leader>wk", "<C-W>k", opts)
 map("n", "<leader>wl", "<C-W>l", opts)
+-- resize
+map("n", "<leader>wf", ":resize <bar> :vertical resize<CR>", opts)
+map("n", "<leader>we", "<C-W>=", opts)
 -- move
 map("n", "<leader>wmh", "<C-W>H", opts)
 map("n", "<leader>wmj", "<C-W>J", opts)
 map("n", "<leader>wmk", "<C-W>K", opts)
 map("n", "<leader>wml", "<C-W>L", opts)
--- resize
-map("n", "<leader>wrf", ":resize <bar> :vertical resize<CR>", opts)
-map("n", "<leader>wre", "<C-W>=", opts)
