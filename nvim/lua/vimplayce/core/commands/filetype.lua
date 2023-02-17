@@ -19,4 +19,4 @@ local function filetype_autocmd(filetype, callback)
 	vim.api.nvim_create_autocmd("Filetype", opts)
 end
 
-filetype_autocmd({ "markdown", "gitcommit" }, "set spell")
+filetype_autocmd({ "markdown", "gitcommit", "mail" }, "set spell")
