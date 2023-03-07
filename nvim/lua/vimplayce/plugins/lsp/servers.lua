@@ -19,7 +19,7 @@ return {
 		},
 	},
 	{
-		name = "sumneko_lua",
+		name = "lua_ls",
 		config = {
 			Lua = {
 				runtime = {

@@ -27,6 +27,16 @@ return {
 		config = function() require("mini.jump2d").setup({}) end,
 	},
 	{
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		tag = 'nightly',
+		config = function() require("nvim-tree").setup({}) end,
+	},
+	
+	-- complex setups
+	{
 		"echasnovski/mini.starter",
 		branch = "stable",
 		config = require "vimplayce.plugins.setups.mini-starter",
@@ -34,7 +44,7 @@ return {
 	{
 		"echasnovski/mini.statusline",
 		requires = {
-			"kyazdani42/nvim-web-devicons",
+			"nvim-tree/nvim-web-devicons",
 		},
 		branch = "stable",
 		config = require "vimplayce.plugins.setups.mini-statusline",
