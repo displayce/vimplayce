@@ -2,6 +2,7 @@ return {
 	"gopls",
 	"ocamlls",
 	"phpactor",
+	"ccls",
 	-- "vls", -- not working properly rn
 
 	{
