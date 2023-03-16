@@ -11,3 +11,18 @@ autocmd("BufWritePre", {
 	},
 	command = "setlocal noundofile",
 })
+
+autocmd("VimEnter", {
+	callback = function(data)
+		local is_directory = vim.fn.isdirectory(data.file) == 1
+		if not is_directory then
+			return
+		end
+
+
+		vim.cmd.enew()
+		vim.cmd.bw(data.buf)
+		vim.cmd.cd(data.file)
+		require("nvim-tree.api").tree.open()
+	end
+})
