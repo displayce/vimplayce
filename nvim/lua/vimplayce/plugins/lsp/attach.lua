@@ -40,9 +40,7 @@ function H.attach(_, bufnr)
 	map("n", "<leader>ln", vim.lsp.buf.rename, bufopts)
 	map("n", "<leader>lc", vim.lsp.buf.code_action, bufopts)
 	map("n", "<leader>lr", vim.lsp.buf.references, bufopts)
-	map("n", "<leader>lf", function()
-		vim.lsp.buf.format({ async = true })
-	end, bufopts)
+	map("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, bufopts)
 end
 
 -- returning on_attach function

@@ -1,9 +1,7 @@
 local opts = { noremap = true, silent = true }
 
 local map = vim.keymap.set
-local leadermap = function(mode, mapping, cmd, opts)
-	vim.keymap.set(mode, "<leader>" .. mapping, cmd, opts)
-end
+local leadermap = function(mode, mapping, cmd, opts) vim.keymap.set(mode, "<leader>" .. mapping, cmd, opts) end
 
 -- Disable space for leader usage
 map("", "<Space>", "<Nop>", opts)

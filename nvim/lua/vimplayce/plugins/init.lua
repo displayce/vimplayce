@@ -2,39 +2,29 @@ return {
 	-- theme
 	{
 		"sainnhe/everforest",
-		config = function()
-			vim.cmd([[colorscheme everforest]])
-		end,
+		config = function() vim.cmd([[colorscheme everforest]]) end,
 	},
 
 	-- main
 	{
 		"echasnovski/mini.cursorword",
 		branch = "stable",
-		config = function()
-			require("mini.cursorword").setup({})
-		end,
+		config = function() require("mini.cursorword").setup({}) end,
 	},
 	{
 		"echasnovski/mini.comment",
 		branch = "stable",
-		config = function()
-			require("mini.comment").setup({})
-		end,
+		config = function() require("mini.comment").setup({}) end,
 	},
 	{
 		"echasnovski/mini.indentscope",
 		branch = "stable",
-		config = function()
-			require("mini.indentscope").setup({})
-		end,
+		config = function() require("mini.indentscope").setup({}) end,
 	},
 	{
 		"echasnovski/mini.jump2d",
 		branch = "stable",
-		config = function()
-			require("mini.jump2d").setup({})
-		end,
+		config = function() require("mini.jump2d").setup({}) end,
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -42,9 +32,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		tag = "nightly",
-		config = function()
-			require("nvim-tree").setup({})
-		end,
+		config = function() require("nvim-tree").setup({}) end,
 	},
 
 	-- complex setups
