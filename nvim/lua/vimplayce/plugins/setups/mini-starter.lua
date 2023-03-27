@@ -1,5 +1,5 @@
 return function()
-	local starter = require "mini.starter"
+	local starter = require("mini.starter")
 	starter.setup({
 		header = " █ █ █ █▄ ▄█ █▀▄ █   ▄▀▄ ▀▄▀ ▄▀▀ ██▀\n ▀▄▀ █ █ ▀ █ █▀  █▄▄ █▀█  █  ▀▄▄ █▄▄\n",
 		footer = "Nvim is open source and freely distributable.\n\tVisit: https://neovim.io/sponsors\n\nVim is charityware. Help children in Uganda!\n\tVisit: https://vim.org/sponsor\n\nFor more information about vim's charity\n\t\ttype :help iccf<Enter>",
@@ -49,7 +49,7 @@ return function()
 					name = "Compile",
 					action = function()
 						local packer = package.loaded.packer
-						vim.notify "Compiling packer."
+						vim.notify("Compiling packer.")
 						packer.compile()
 					end,
 				},
@@ -58,7 +58,7 @@ return function()
 					name = "Sync",
 					action = function()
 						local packer = package.loaded.packer
-						vim.notify "Syncing packer."
+						vim.notify("Syncing packer.")
 						packer.sync()
 					end,
 				},

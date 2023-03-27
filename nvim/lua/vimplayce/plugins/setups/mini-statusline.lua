@@ -1,5 +1,5 @@
 return function()
-	local devicons = require "nvim-web-devicons"
+	local devicons = require("nvim-web-devicons")
 	require("mini.statusline").setup({
 		set_vim_settings = false,
 		content = {
@@ -8,8 +8,8 @@ return function()
 				local git = MiniStatusline.section_git({ trunc_width = 100 })
 				local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
 
-				local filename = vim.fn.expand "%:t"
-				local extension = vim.fn.expand "%:e"
+				local filename = vim.fn.expand("%:t")
+				local extension = vim.fn.expand("%:e")
 				local icon = devicons.get_icon(filename, extension, { default = true })
 
 				return MiniStatusline.combine_groups({

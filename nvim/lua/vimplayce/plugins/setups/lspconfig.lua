@@ -1,5 +1,5 @@
 return function()
-	local lspconfig = require "lspconfig"
+	local lspconfig = require("lspconfig")
 
 	local aok, attach = pcall(require, "vimplayce.plugins.lsp.attach")
 	if not aok then

@@ -1,7 +1,9 @@
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("TextYankPost", {
-	callback = function() vim.highlight.on_yank({ higroup = "Yellow", timeout = 250 }) end,
+	callback = function()
+		vim.highlight.on_yank({ higroup = "Yellow", timeout = 250 })
+	end,
 })
 
 autocmd("BufWritePre", {
@@ -19,10 +21,9 @@ autocmd("VimEnter", {
 			return
 		end
 
-
 		vim.cmd.enew()
 		vim.cmd.bw(data.buf)
 		vim.cmd.cd(data.file)
 		require("nvim-tree.api").tree.open()
-	end
+	end,
 })

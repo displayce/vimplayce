@@ -13,7 +13,7 @@ local function filetype_autocmd(filetype, callback)
 	elseif cb == "function" then
 		opts["callback"] = callback
 	else
-		return log.error "error while creating filetype autocmd, callback is neither string nor function"
+		return log.error("error while creating filetype autocmd, callback is neither string nor function")
 	end
 
 	vim.api.nvim_create_autocmd("Filetype", opts)

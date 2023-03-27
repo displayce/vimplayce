@@ -1,7 +1,7 @@
 -- Bootstrapping function
 local function ensure_packer()
 	local fn = vim.fn
-	local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 	if fn.empty(fn.glob(install_path)) > 0 then
 		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
 
@@ -14,7 +14,7 @@ local function ensure_packer()
 			callback = function()
 				vim.api.nvim_win_close(0, true)
 				for name in pairs(package.loaded) do
-					if name:match "^vimplayce" then
+					if name:match("^vimplayce") then
 						package.loaded[name] = nil
 					end
 				end
@@ -24,21 +24,21 @@ local function ensure_packer()
 			end,
 		})
 
-		vim.cmd [[packadd packer.nvim]]
+		vim.cmd([[packadd packer.nvim]])
 		return true
 	end
 	return false
 end
 
 local is_packer_bootstraped = ensure_packer()
-local packer = require "packer"
+local packer = require("packer")
 
 packer.startup(function(use)
-	use "wbthomason/packer.nvim"
+	use("wbthomason/packer.nvim")
 
 	local ok, plugins = pcall(require, "vimplayce.plugins")
 	if not ok then
-		return log.error [[Couldn't load vimplayce's plugins]]
+		return log.error([[Couldn't load vimplayce's plugins]])
 	end
 
 	for _, plugin in pairs(plugins) do

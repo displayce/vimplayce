@@ -1,5 +1,5 @@
 return function()
-	local cmpl = require "mini.completion"
+	local cmpl = require("mini.completion")
 
 	cmpl.setup({
 		lsp_completion = {

@@ -1,5 +1,5 @@
 return function()
-	local null_ls = require "null-ls"
+	local null_ls = require("null-ls")
 
 	-- python builtins with custom cli args
 
