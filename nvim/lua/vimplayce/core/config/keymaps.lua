@@ -18,7 +18,6 @@ leadermap({ "n", "v" }, "p", '"+p', opts)
 -- Buffers mappings
 leadermap("n", "bh", ":bp<cr>", opts)
 leadermap("n", "bl", ":bn<cr>", opts)
-leadermap("n", "bb", ":buffers<cr>:buffer ", { noremap = true })
 
 -- Window mappings
 -- closing
@@ -40,3 +39,11 @@ map("n", "<A-S-H>", "<C-W>H", opts)
 map("n", "<A-S-J>", "<C-W>J", opts)
 map("n", "<A-S-K>", "<C-W>K", opts)
 map("n", "<A-S-L>", "<C-W>L", opts)
+
+-- Plugin mappings
+-- fzf-lua
+leadermap("n", "fb", ":FzfLua buffers<CR>", opts)
+leadermap("n", "ff", ":FzfLua files<CR>", opts)
+leadermap("n", "fl", ":FzfLua lines<CR>", opts)
+leadermap("n", "fg", ":FzfLua live_grep<CR>", opts)
+leadermap("n", "fz", ":FzfLua builtins<CR>", opts)

@@ -34,6 +34,13 @@ return {
 		tag = "nightly",
 		config = function() require("nvim-tree").setup({}) end,
 	},
+	{
+		"ibhagwan/fzf-lua",
+		requires = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function() require("fzf-lua").setup({}) end,
+	},
 
 	-- complex setups
 	{
