@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 
 local map = vim.keymap.set
-local leadermap = function(mode, mapping, cmd, opts) vim.keymap.set(mode, "<leader>" .. mapping, cmd, opts) end
+local leadermap = function(mode, mapping, cmd, options) map(mode, "<leader>" .. mapping, cmd, options) end
 
 -- Disable space for leader usage
 map("", "<Space>", "<Nop>", opts)
@@ -22,22 +22,21 @@ leadermap("n", "bb", ":buffers<cr>:buffer ", { noremap = true })
 
 -- Window mappings
 -- closing
-leadermap("n", "wc", "<C-W>c", opts)
-leadermap("n", "wo", "<C-W>o", opts)
+map("n", "<A-c>", "<C-W>c", opts)
+map("n", "<A-u>", "<C-W>o", opts)
 -- splits
-leadermap("n", "wv", "<C-W>v", opts)
-leadermap("n", "ws", "<C-W>s", opts)
-leadermap("n", "wn", ":vnew ", { noremap = true })
+map({ "n", "v" }, "<A-n>", ":vsplit<CR>", opts)
+map({ "n", "v" }, "<A-S-n>", ":split<CR>", opts)
 -- select
-leadermap("n", "wh", "<C-W>h", opts)
-leadermap("n", "wj", "<C-W>j", opts)
-leadermap("n", "wk", "<C-W>k", opts)
-leadermap("n", "wl", "<C-W>l", opts)
+map("n", "<A-h>", "<C-W>h", opts)
+map("n", "<A-j>", "<C-W>j", opts)
+map("n", "<A-k>", "<C-W>k", opts)
+map("n", "<A-l>", "<C-W>l", opts)
 -- resize
-leadermap("n", "wf", ":resize <bar> :vertical resize<CR>", opts)
-leadermap("n", "we", "<C-W>=", opts)
+map("n", "<A-f>", ":resize <bar> :vertical resize<CR>", opts)
+map("n", "<A-e>", "<C-W>=", opts)
 -- move
-leadermap("n", "wmh", "<C-W>H", opts)
-leadermap("n", "wmj", "<C-W>J", opts)
-leadermap("n", "wmk", "<C-W>K", opts)
-leadermap("n", "wml", "<C-W>L", opts)
+map("n", "<A-S-H>", "<C-W>H", opts)
+map("n", "<A-S-J>", "<C-W>J", opts)
+map("n", "<A-S-K>", "<C-W>K", opts)
+map("n", "<A-S-L>", "<C-W>L", opts)

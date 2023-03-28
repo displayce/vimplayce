@@ -2,3 +2,4 @@ plugin/
 dev/
 fish/
 spell/
+.luarc.json
