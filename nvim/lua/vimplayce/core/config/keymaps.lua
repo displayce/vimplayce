@@ -42,8 +42,4 @@ map("n", "<A-S-L>", "<C-W>L", opts)
 
 -- Plugin mappings
 -- fzf-lua
-leadermap("n", "fb", ":FzfLua buffers<CR>", opts)
-leadermap("n", "ff", ":FzfLua files<CR>", opts)
-leadermap("n", "fl", ":FzfLua lines<CR>", opts)
-leadermap("n", "fg", ":FzfLua live_grep<CR>", opts)
-leadermap("n", "fz", ":FzfLua builtin<CR>", opts)
+leadermap("n", "f", ":FzfLua builtin<CR>", opts)
