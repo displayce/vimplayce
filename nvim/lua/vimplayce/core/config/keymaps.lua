@@ -18,6 +18,7 @@ leadermap({ "n", "v" }, "p", '"+p', opts)
 -- Buffers mappings
 leadermap("n", "bh", ":bp<cr>", opts)
 leadermap("n", "bl", ":bn<cr>", opts)
+leadermap("n", "bb", ":buffers<cr>:buffer ")
 
 -- Window mappings
 -- closing
