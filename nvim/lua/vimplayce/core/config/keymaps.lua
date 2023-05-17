@@ -41,7 +41,7 @@ map("n", "<A-S-J>", "<C-W>J", opts)
 map("n", "<A-S-K>", "<C-W>K", opts)
 map("n", "<A-S-L>", "<C-W>L", opts)
 -- toggle NvimTree
-map("n", "<A-n>", ":NvimTreeToggle<CR>", opts)
+map("n", "<A-t>", ":NvimTreeToggle<CR>", opts)
 
 -- Plugin mappings
 -- fzf-lua
