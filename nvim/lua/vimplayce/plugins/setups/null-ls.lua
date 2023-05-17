@@ -6,6 +6,7 @@ return function()
 	null_ls.setup({
 		sources = {
 			-- formatting
+			null_ls.builtins.formatting.sqlfmt,
 			null_ls.builtins.formatting.stylua,
 			null_ls.builtins.formatting.black.with({
 				extra_args = { "--line-length", "150" },

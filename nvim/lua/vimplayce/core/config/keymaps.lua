@@ -23,7 +23,7 @@ leadermap("n", "bb", ":buffers<cr>:buffer ")
 -- Window mappings
 -- closing
 map("n", "<A-c>", "<C-W>c", opts)
-map("n", "<A-u>", "<C-W>o", opts)
+map("n", "<A-o>", "<C-W>o", opts)
 -- splits
 map({ "n", "v" }, "<A-n>", ":vsplit<CR>", opts)
 map({ "n", "v" }, "<A-S-n>", ":split<CR>", opts)
@@ -40,6 +40,8 @@ map("n", "<A-S-H>", "<C-W>H", opts)
 map("n", "<A-S-J>", "<C-W>J", opts)
 map("n", "<A-S-K>", "<C-W>K", opts)
 map("n", "<A-S-L>", "<C-W>L", opts)
+-- toggle NvimTree
+map("n", "<A-n>", ":NvimTreeToggle<CR>", opts)
 
 -- Plugin mappings
 -- fzf-lua
