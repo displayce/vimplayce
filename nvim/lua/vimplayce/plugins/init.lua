@@ -2,7 +2,7 @@ return {
 	-- theme
 	{
 		"sainnhe/everforest",
-		config = function() vim.cmd([[colorscheme everforest]]) end,
+		config = function() vim.cmd("colorscheme everforest") end,
 	},
 
 	-- main
@@ -41,6 +41,12 @@ return {
 		},
 		config = function() require("fzf-lua").setup({}) end,
 	},
+	{
+		"gpanders/nvim-parinfer",
+	},
+	{
+		"sheerun/vim-polyglot",
+	},
 
 	-- complex setups
 	{
@@ -59,9 +65,6 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		config = require("vimplayce.plugins.setups.gitsigns"),
-	},
-	{
-		"sheerun/vim-polyglot",
 	},
 
 	-- lsp related
