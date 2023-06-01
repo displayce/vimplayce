@@ -1,10 +1,17 @@
 return {
-	"gopls",
 	"ocamlls",
 	"phpactor",
 	"ccls",
 	-- "vls", -- not working properly rn
 
+	{
+		name = "gopls",
+		config = {
+			gopls = {
+				gofumpt = true,
+			}
+		}
+	},
 	{
 		name = "pylsp",
 		config = {
