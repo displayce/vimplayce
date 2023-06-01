@@ -35,13 +35,6 @@ return {
 		config = function() require("nvim-tree").setup({}) end,
 	},
 	{
-		"ibhagwan/fzf-lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function() require("fzf-lua").setup({}) end,
-	},
-	{
 		"gpanders/nvim-parinfer",
 	},
 	{
@@ -65,6 +58,11 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		config = require("vimplayce.plugins.setups.gitsigns"),
+	},
+	{
+		'https://git.sr.ht/~vigoux/azy.nvim',
+		run = 'make lib',
+		config = require("vimplayce.plugins.setups.azy"),
 	},
 
 	-- lsp related

@@ -44,5 +44,8 @@ map("n", "<A-S-L>", "<C-W>L", opts)
 map("n", "<A-t>", ":NvimTreeToggle<CR>", opts)
 
 -- Plugin mappings
--- fzf-lua
-leadermap("n", "f", ":FzfLua builtin<CR>", opts)
+-- azy.nvim
+leadermap("n", "fb", require("azy.builtins").buffers(), opts)
+leadermap("n", "ff", require("azy.builtins").files(), opts)
+leadermap("n", "fg", require("azy.builtins").files_contents(), opts)
+leadermap("n", "fs", require("azy.builtins").lsp.document_symbol(), opts)
