@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # 
 # Script used to create a virtual environment for this neovim
 # configuration.
@@ -7,8 +7,9 @@
 
 usage () {
     cat <<HELP
-usage: ./venv [OPTION]...
+usage: ./venv [OPTION]... -- ARGS
 
+	ARGS are passed to the spawned shell.
     OPTION:
 	    --state=STATE
 		    STATE neovim directory. See XDG_STATE_HOME in neovim man page.
@@ -20,10 +21,9 @@ usage: ./venv [OPTION]...
 		    CONFIG neovim directory. See XDG_CONFIG_HOME in neovim man page.
 
 	    --shell=SHELL
-		    SHELL will be launched instead of \$SHELL.
+		    SHELL will be launched instead of bash.
 
-	    --ps1=FMT
-		    Set PS1 env in virtual shell to FMT.
+	    --ps1=FMT Set PS1 env in virtual shell to FMT.
 
 	    -h, --help
 		    Show this help message.
@@ -59,6 +59,10 @@ setoption () {
 	    XDG_DATA_HOME=$VALUE
 	    ;;
 
+	'--')
+		exit 1
+		;;
+
 	'*')
 	    echo "option $1 is not valid."
 	    usage
@@ -71,7 +75,6 @@ export PS1="(nvim) [\u@\W] $ "
 export XDG_CONFIG_HOME="$(pwd)"
 export XDG_STATE_HOME="$(pwd)/dev/state"
 export XDG_DATA_HOME="$(pwd)/dev/share"
-export CUSTOM_SHELL=$SHELL
 
 # Parse options
 while [ "$#" -gt 0 ]; do
@@ -83,9 +86,9 @@ while [ "$#" -gt 0 ]; do
 		shift
     fi
 
-    setoption $OPTION $VALUE
+    setoption "$OPTION" "$VALUE" || break
     shift
 done
 
 # Start the virtual shell for neovim testing
-$CUSTOM_SHELL || echo "invalid shell"
+${CUSTOM_SHELL:-bash} "${@:---norc}" || echo "invalid shell"
