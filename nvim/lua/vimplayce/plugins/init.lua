@@ -6,6 +6,12 @@ return {
 	},
 
 	-- main
+	-- no setup
+	"gpanders/nvim-parinfer",
+	"sheerun/vim-polyglot",
+	"hylang/vim-hy",
+	'Olical/conjure',
+	-- simple setup
 	{
 		"echasnovski/mini.cursorword",
 		branch = "stable",
@@ -33,12 +39,6 @@ return {
 		},
 		tag = "nightly",
 		config = function() require("nvim-tree").setup({}) end,
-	},
-	{
-		"gpanders/nvim-parinfer",
-	},
-	{
-		"sheerun/vim-polyglot",
 	},
 
 	-- complex setups
