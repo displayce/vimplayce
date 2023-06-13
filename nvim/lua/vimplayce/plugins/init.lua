@@ -10,6 +10,7 @@ return {
 	"gpanders/nvim-parinfer",
 	"sheerun/vim-polyglot",
 	"hylang/vim-hy",
+	"teal-language/vim-teal",
 	'Olical/conjure',
 	-- simple setup
 	{

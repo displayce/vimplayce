@@ -1,9 +1,9 @@
 return function()
+	local attach = require("vimplayce.plugins.lsp.attach")
 	local null_ls = require("null-ls")
 
-	-- python builtins with custom cli args
-
 	null_ls.setup({
+		on_attach = attach,
 		sources = {
 			-- formatting
 			null_ls.builtins.formatting.sqlfmt,
@@ -24,6 +24,7 @@ return function()
 					"C90,B008,U007",
 				},
 			}),
+			null_ls.builtins.diagnostics.teal,
 		},
 	})
 end
