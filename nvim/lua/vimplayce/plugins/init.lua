@@ -11,7 +11,7 @@ return {
 	"sheerun/vim-polyglot",
 	"hylang/vim-hy",
 	"teal-language/vim-teal",
-	'Olical/conjure',
+	"Olical/conjure",
 	-- simple setup
 	{
 		"echasnovski/mini.cursorword",
@@ -61,8 +61,8 @@ return {
 		config = require("vimplayce.plugins.setups.gitsigns"),
 	},
 	{
-		'https://git.sr.ht/~vigoux/azy.nvim',
-		run = 'make lib',
+		"https://git.sr.ht/~vigoux/azy.nvim",
+		run = "make lib",
 		config = require("vimplayce.plugins.setups.azy"),
 	},
 

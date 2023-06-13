@@ -9,8 +9,8 @@ return {
 		config = {
 			gopls = {
 				gofumpt = true,
-			}
-		}
+			},
+		},
 	},
 	{
 		name = "pylsp",
