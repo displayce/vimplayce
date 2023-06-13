@@ -47,5 +47,5 @@ map("n", "<A-t>", ":NvimTreeToggle<CR>", opts)
 -- azy.nvim
 leadermap("n", "fb", require("azy.builtins").buffers(), opts)
 leadermap("n", "ff", require("azy.builtins").files(), opts)
-leadermap("n", "fg", require("azy.builtins").files_contents(), opts)
+leadermap("n", "fg", require("azy.builtins").curbuf_content(), opts)
 leadermap("n", "fs", require("azy.builtins").lsp.document_symbol(), opts)
