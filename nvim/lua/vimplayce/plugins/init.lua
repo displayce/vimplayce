@@ -11,7 +11,6 @@ return {
 	"sheerun/vim-polyglot",
 	"hylang/vim-hy",
 	"teal-language/vim-teal",
-	"Olical/conjure",
 	-- simple setup
 	{
 		"echasnovski/mini.cursorword",
@@ -64,6 +63,10 @@ return {
 		"https://git.sr.ht/~vigoux/azy.nvim",
 		run = "make lib",
 		config = require("vimplayce.plugins.setups.azy"),
+	},
+	{
+		"Olical/conjure",
+		config = require("vimplayce.plugins.setups.conjure"),
 	},
 
 	-- lsp related
