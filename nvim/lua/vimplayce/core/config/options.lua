@@ -20,6 +20,12 @@ vim.o.list = true
 vim.o.foldmethod = "indent"
 vim.o.foldenable = false
 
+vim.o.textwidth = 80
+vim.opt.formatoptions:remove("t")
+for _, fopts in pairs({ "c", "r", "l" }) do
+	vim.opt.formatoptions:append(fopts)
+end
+
 vim.o.undofile = true
 
 vim.o.splitbelow = true
