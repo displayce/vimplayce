@@ -62,7 +62,7 @@ return {
 	{
 		"https://git.sr.ht/~vigoux/azy.nvim",
 		config = require("vimplayce.plugins.setups.azy"),
-		run = 'make lib',
+		run = "make lib",
 	},
 	{
 		"Olical/conjure",
