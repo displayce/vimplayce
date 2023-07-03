@@ -20,3 +20,4 @@ local function filetype_autocmd(filetype, callback)
 end
 
 filetype_autocmd({ "markdown", "gitcommit", "mail" }, "set spell")
+filetype_autocmd({ "scheme" }, "let g:is_chicken=1")
