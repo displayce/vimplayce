@@ -1,8 +1,5 @@
 return {
-	"ocamlls",
-	"phpactor",
 	"ccls",
-	-- "vls", -- not working properly rn
 
 	{
 		name = "gopls",
