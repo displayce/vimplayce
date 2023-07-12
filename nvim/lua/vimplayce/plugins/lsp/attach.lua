@@ -35,7 +35,7 @@ function H.attach(client, bufnr)
 
 	-- lsp
 	local capabilities_to_bind = {
-		{ mapping = "<leader>ld", check = "defitionProvider", func = vim.lsp.buf.definition },
+		{ mapping = "<leader>ld", check = "definitionProvider", func = vim.lsp.buf.definition },
 		{ mapping = "<leader>lD", check = "declarationProvider", func = vim.lsp.buf.declaration },
 		{ mapping = "<leader>lh", check = "hoverProvider", func = vim.lsp.buf.hover },
 		{ mapping = "<leader>li", check = "implementationProvider", func = vim.lsp.buf.implementation },
