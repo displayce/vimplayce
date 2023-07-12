@@ -16,13 +16,16 @@ function H.set_signs()
 	end
 end
 
-function H.attach(_, bufnr)
+function H.attach(client, bufnr)
 	-- set completion function
-	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.MiniCompletion.completefunc_lsp")
+	local ls_client_capabilities = client.server_capabilities
+	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+	if client.name ~= "null-ls" and ls_client_capabilities["completionProvider"] then
+		vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.MiniCompletion.completefunc_lsp")
+	end
 
 	local map = vim.keymap.set
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-
 	-- signs
 	H.set_signs()
 	-- diagnostic
@@ -31,16 +34,27 @@ function H.attach(_, bufnr)
 	map("n", "<leader>dl", vim.diagnostic.goto_next, bufopts)
 
 	-- lsp
-	map("n", "<leader>ld", vim.lsp.buf.definition, bufopts)
-	map("n", "<leader>lD", vim.lsp.buf.declaration, bufopts)
-	map("n", "<leader>lh", vim.lsp.buf.hover, bufopts)
-	map("n", "<leader>li", vim.lsp.buf.implementation, bufopts)
-	map("n", "<leader>ls", vim.lsp.buf.signature_help, bufopts)
-	map("n", "<leader>lt", vim.lsp.buf.type_definition, bufopts)
-	map("n", "<leader>ln", vim.lsp.buf.rename, bufopts)
-	map("n", "<leader>lc", vim.lsp.buf.code_action, bufopts)
-	map("n", "<leader>lr", vim.lsp.buf.references, bufopts)
-	map("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, bufopts)
+	local capabilities_to_bind = {
+		{ mapping = "<leader>ld", check = "defitionProvider", func = vim.lsp.buf.definition },
+		{ mapping = "<leader>lD", check = "declarationProvider", func = vim.lsp.buf.declaration },
+		{ mapping = "<leader>lh", check = "hoverProvider", func = vim.lsp.buf.hover },
+		{ mapping = "<leader>li", check = "implementationProvider", func = vim.lsp.buf.implementation },
+		{ mapping = "<leader>ls", check = "signatureHelpProvider", func = vim.lsp.buf.signature_help },
+		{ mapping = "<leader>lt", check = "typeDefinitionProvider", func = vim.lsp.buf.type_definition },
+		{ mapping = "<leader>ln", check = "renameProvider", func = vim.lsp.buf.rename },
+		{ mapping = "<leader>lc", check = "codeActionProvider", func = vim.lsp.buf.code_action },
+		{ mapping = "<leader>lr", check = "referencesProvider", func = vim.lsp.buf.references },
+		{
+			mapping = "<leader>lf",
+			check = "documentFormattingProvider",
+			func = function() vim.lsp.buf.format({ async = true }) end,
+		},
+	}
+	for _, binding in pairs(capabilities_to_bind) do
+		if ls_client_capabilities[binding.check] then
+			map("n", binding.mapping, binding.func, bufopts)
+		end
+	end
 end
 
 -- returning on_attach function
