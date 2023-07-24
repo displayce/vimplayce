@@ -7,7 +7,6 @@ local leadermap = function(mode, mapping, cmd, options) map(mode, "<leader>" .. 
 map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 -- NOH
 leadermap("n", "h", ":noh<CR>", opts)
 
@@ -42,6 +41,24 @@ map("n", "<A-S-K>", "<C-W>K", opts)
 map("n", "<A-S-L>", "<C-W>L", opts)
 -- toggle NvimTree
 map("n", "<A-t>", ":NvimTreeToggle<CR>", opts)
+
+-- Shortcut to create screenshot of the highlighted code
+if vim.fn.executable("wkhtmltoimage") == 1 then
+	map("v", "<C-s>", function()
+		local timestamp = os.date("!%d%m%H%M%S")
+		local basename = "/tmp/snippet-" .. timestamp
+		vim.api.nvim_set_var("html_number_lines", "0")
+		-- magic -- must be dirty but :shrug:
+		vim.cmd(
+			string.format(
+				":'<,'>TOhtml | :w %s.html | :bd! | :silent !wkhtmltoimage %s.html %s.jpg",
+				basename,
+				basename,
+				basename
+			)
+		)
+	end, {})
+end
 
 -- Plugin mappings
 -- azy.nvim
