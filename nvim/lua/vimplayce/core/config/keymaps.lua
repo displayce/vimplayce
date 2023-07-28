@@ -19,6 +19,9 @@ leadermap("n", "bh", ":bp<cr>", opts)
 leadermap("n", "bl", ":bn<cr>", opts)
 leadermap("n", "bb", ":buffers<cr>:buffer ")
 
+-- Marks - goto marks
+map("n", "gm", "`", opts)
+
 -- Window mappings
 -- closing
 map("n", "<A-c>", "<C-W>c", opts)
