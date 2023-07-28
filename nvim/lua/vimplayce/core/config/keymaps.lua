@@ -21,6 +21,9 @@ leadermap("n", "bb", ":buffers<cr>:buffer ")
 
 -- Marks - goto marks
 map("n", "gm", "`", opts)
+map("n", "gM", ":marks a-zA-Z<CR>:normal gm", opts)
+map("n", "dm", ":delmarks ", {})
+map("n", "dM", ":delmarks a-zA-Z<CR>", {})
 
 -- Window mappings
 -- closing
