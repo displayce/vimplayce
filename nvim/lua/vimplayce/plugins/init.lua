@@ -33,14 +33,6 @@ return {
 		config = function() require("mini.jump2d").setup({}) end,
 	},
 	{
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		tag = "nightly",
-		config = function() require("nvim-tree").setup({}) end,
-	},
-	{
 		"nacro90/numb.nvim",
 		config = function() require("numb").setup({}) end,
 	},
