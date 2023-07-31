@@ -1,6 +1,3 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 vim.o.signcolumn = "yes:1"
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
