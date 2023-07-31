@@ -28,11 +28,6 @@ return {
 		config = function() require("mini.indentscope").setup({}) end,
 	},
 	{
-		"echasnovski/mini.jump2d",
-		branch = "stable",
-		config = function() require("mini.jump2d").setup({}) end,
-	},
-	{
 		"nacro90/numb.nvim",
 		config = function() require("numb").setup({}) end,
 	},
