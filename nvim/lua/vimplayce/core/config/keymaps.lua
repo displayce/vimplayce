@@ -21,9 +21,9 @@ leadermap("n", "bb", ":buffers<cr>:buffer ")
 
 -- Marks - goto marks
 map("n", "gm", "`", opts)
-map("n", "gM", ":marks a-zA-Z<CR>:normal gm", opts)
+map("n", "gM", ":marks<CR>:normal gm", opts)
 map("n", "dm", ":delmarks ", {})
-map("n", "dM", ":delmarks a-zA-Z<CR>", {})
+map("n", "dM", ":delmarks a-zA-Z<CR><CR>", opts)
 
 -- Window mappings
 -- closing
@@ -63,11 +63,3 @@ if vim.fn.executable("wkhtmltoimage") == 1 then
 		)
 	end, {})
 end
-
--- Plugin mappings
--- azy.nvim
-leadermap("n", "fb", require("azy.builtins").buffers(), opts)
-leadermap("n", "ff", require("azy.builtins").files(), opts)
-leadermap("n", "fg", require("azy.builtins").curbuf_content(), opts)
-leadermap("n", "fG", require("azy.builtins").files_contents(), opts)
-leadermap("n", "fs", require("azy.builtins").lsp.document_symbol(), opts)

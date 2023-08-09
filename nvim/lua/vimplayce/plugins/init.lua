@@ -34,11 +34,6 @@ return {
 
 	-- complex setups
 	{
-		"echasnovski/mini.starter",
-		branch = "stable",
-		config = require("vimplayce.plugins.setups.mini-starter"),
-	},
-	{
 		"echasnovski/mini.statusline",
 		requires = {
 			"nvim-tree/nvim-web-devicons",
@@ -49,11 +44,6 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		config = require("vimplayce.plugins.setups.gitsigns"),
-	},
-	{
-		"https://git.sr.ht/~vigoux/azy.nvim",
-		config = require("vimplayce.plugins.setups.azy"),
-		run = "make lib",
 	},
 	{
 		"Olical/conjure",

@@ -27,3 +27,5 @@ vim.o.undofile = true
 
 vim.o.splitbelow = true
 vim.o.splitright = true
+
+vim.opt.path:append('**')
