@@ -2,7 +2,7 @@ local user_command = vim.api.nvim_create_user_command
 
 user_command(
 	"Agrep",
-	function(keys) try("silent grep " .. keys["args"] .. " | silent cfirst", "echomsg 'No matches found'")() end,
+	function(keys) try("silent grep " .. keys["args"] .. " | silent copen 20", "echomsg 'No matches found'")() end,
 	{ nargs = "+" }
 )
 
