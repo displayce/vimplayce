@@ -28,4 +28,9 @@ vim.o.undofile = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.opt.path:append('**')
+vim.opt.path:append("**")
+
+if vim.fn.executable("ag") then
+	vim.opt.grepprg = "ag --vimgrep"
+	vim.opt.grepformat = "%f:%l:%c%m"
+end
