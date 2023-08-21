@@ -6,6 +6,8 @@ user_command(
 	{ nargs = "+" }
 )
 
+user_command("Find", ":find <args>", { nargs = "+", complete = "file_in_path" })
+
 user_command("Date", function(_)
 	local date = os.date("# %d-%m-%Y", os.time())
 	local row = vim.api.nvim_win_get_cursor(0)[1]
