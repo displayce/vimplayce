@@ -56,8 +56,9 @@ map("n", "<A-S-J>", "<C-W>J", opts)
 map("n", "<A-S-K>", "<C-W>K", opts)
 map("n", "<A-S-L>", "<C-W>L", opts)
 
--- shortcut to grep search some text and split-open the quickfix list
-map("n", "gs", ":Agrep ")
+-- shortcut to grep search some text and quickfix navigation
+map("n", "gs", ":Agrep <cword><CR>", opts)
+map("n", "gS", ":Agrep ")
 map("n", "gn", try("silent cnext", "silent cfirst"), opts)
 map("n", "gp", try("silent cprevious", "silent clast"), opts)
 
