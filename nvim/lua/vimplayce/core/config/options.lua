@@ -11,6 +11,7 @@ vim.o.laststatus = 3
 vim.o.cmdheight = 0
 vim.o.scrolloff = 5
 vim.o.cursorline = true
+vim.o.mouse = ""
 
 vim.o.listchars = "tab:··"
 vim.o.list = true
