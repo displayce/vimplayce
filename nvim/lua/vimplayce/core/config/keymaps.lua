@@ -3,16 +3,6 @@ local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 local leadermap = function(mode, mapping, cmd, options) map(mode, "<leader>" .. mapping, cmd, options) end
 
-function try(base, catch)
-	return function()
-		local command = ":try | " .. base
-		if type(catch) == "string" then
-			command = command .. " | catch | " .. catch
-		end
-		vim.cmd(command .. " | endtry")
-	end
-end
-
 -- Disable space for leader usage
 map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -57,10 +47,10 @@ map("n", "<A-S-K>", "<C-W>K", opts)
 map("n", "<A-S-L>", "<C-W>L", opts)
 
 -- shortcut to grep search some text and quickfix navigation
-map("n", "gs", ":Agrep <cword><CR>", opts)
-map("n", "gS", ":Agrep ")
-map("n", "gn", try("silent cnext", "silent cfirst"), opts)
-map("n", "gp", try("silent cprevious", "silent clast"), opts)
+map("n", "g/", ":Agrep <cword><CR>", opts)
+map("n", "g?", ":Agrep ")
+map("n", "gn", ":silent cnext<CR>", opts)
+map("n", "gp", ":silent cprevious<CR>", opts)
 
 -- Shortcut to create screenshot of the highlighted code
 if vim.fn.executable("wkhtmltoimage") == 1 then

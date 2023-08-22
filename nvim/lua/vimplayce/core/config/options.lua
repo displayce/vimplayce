@@ -33,5 +33,4 @@ vim.opt.path:append("**")
 
 if vim.fn.executable("ag") then
 	vim.opt.grepprg = "ag --vimgrep"
-	vim.opt.grepformat = "%f:%l:%c%m"
 end

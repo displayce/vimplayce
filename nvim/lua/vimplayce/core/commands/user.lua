@@ -1,10 +1,16 @@
 local user_command = vim.api.nvim_create_user_command
 
-user_command(
-	"Agrep",
-	function(keys) try("silent grep " .. keys["args"] .. " | silent copen 20", "echomsg 'No matches found'")() end,
-	{ nargs = "+" }
-)
+user_command("Agrep", function(keys)
+	-- join grepprg with the args passed to Agrep
+	local expanded = vim.fn.expandcmd(keys["args"])
+	local matches = vim.fn.systemlist(vim.o.grepprg .. " " .. expanded)
+	if #matches == 0 then
+		vim.api.nvim_echo({ { "No matches found", "Error" } }, true, {})
+		return
+	end
+	vim.fn.setqflist({}, "r", { title = "Agrep", lines = matches })
+	vim.cmd("copen")
+end, { nargs = "+", complete = "tag" })
 
 user_command("Find", ":find <args>", { nargs = "+", complete = "file_in_path" })
 
