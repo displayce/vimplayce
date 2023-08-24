@@ -1,23 +1,23 @@
 local opts = { noremap = true, silent = true }
 
 local map = vim.keymap.set
-local leadermap = function(mode, mapping, cmd, options) map(mode, "<leader>" .. mapping, cmd, options) end
 
--- Disable space for leader usage
-map("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 -- NOH
-leadermap("n", "h", ":noh<CR>", opts)
+map("n", "H", ":noh<CR>", opts)
 
 -- Yank & Paste
-leadermap({ "n", "v" }, "y", '"+y', opts)
-leadermap({ "n", "v" }, "p", '"+p', opts)
+map({ "n", "v" }, "gy", '"+y', opts)
+map({ "n", "v" }, "gp", '"+p', opts)
 
 -- Buffers mappings
-leadermap("n", "bh", ":bp<cr>", opts)
-leadermap("n", "bl", ":bn<cr>", opts)
-leadermap("n", "bb", ":buffers<cr>:buffer ")
+map("n", "gh", ":bp<cr>", opts)
+map("n", "gl", ":bn<cr>", opts)
+map("n", "gb", ":buffers<cr>:buffer ")
+
+-- Tags
+map("n", "gd", ":tjump <cword><CR>")
+map("n", "gD", ":ptjump <cword><CR>")
+map("n", "gt", ":pop<CR>")
 
 -- Marks - goto marks
 map("n", "gm", "`", opts)
@@ -49,8 +49,6 @@ map("n", "<A-S-L>", "<C-W>L", opts)
 -- shortcut to grep search some text and quickfix navigation
 map("n", "g/", ":Agrep <cword><CR>", opts)
 map("n", "g?", ":Agrep ")
-map("n", "gn", ":silent cnext<CR>", opts)
-map("n", "gp", ":silent cprevious<CR>", opts)
 
 -- Shortcut to create screenshot of the highlighted code
 if vim.fn.executable("wkhtmltoimage") == 1 then
