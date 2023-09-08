@@ -48,7 +48,7 @@ map("n", "<A-S-L>", "<C-W>L", opts)
 
 -- shortcut to grep search some text and quickfix navigation
 map("n", "g/", ":Agrep <cword><CR>", opts)
-map("n", "g?", ":Agrep ")
+map("n", "g?", ":Agrep <cword> ")
 map("n", "gn", ":silent cnext<CR>", opts)
 map("n", "gp", ":silent cprevious<CR>", opts)
 
