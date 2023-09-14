@@ -1,4 +1,3 @@
-vim.o.signcolumn = "yes:1"
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4
 vim.o.expandtab = true
@@ -8,10 +7,15 @@ vim.o.relativenumber = true
 
 vim.o.termguicolors = true
 vim.o.laststatus = 3
+vim.o.cursorline = true
+
+vim.o.mouse = ""
 vim.o.cmdheight = 0
 vim.o.scrolloff = 5
-vim.o.cursorline = true
-vim.o.mouse = ""
+vim.o.signcolumn = "yes:1"
+
+vim.o.wildoptions="tagfile"
+vim.o.wildmode="list:longest,full"
 
 vim.o.listchars = "tab:··"
 vim.o.list = true
