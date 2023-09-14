@@ -23,6 +23,7 @@ vim.opt.formatoptions:remove("t")
 for _, fopts in pairs({ "c", "r", "l" }) do
 	vim.opt.formatoptions:append(fopts)
 end
+vim.o.spellsuggest="10,best"
 
 vim.o.undofile = true
 
