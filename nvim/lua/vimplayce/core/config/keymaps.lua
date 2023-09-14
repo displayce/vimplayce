@@ -10,9 +10,10 @@ vim.g.maplocalleader = " "
 -- NOH
 leadermap("n", "h", ":noh<CR>", opts)
 
--- Yank & Paste
+-- Yank Paste Redo
 leadermap({ "n", "v" }, "y", '"+y', opts)
 leadermap({ "n", "v" }, "p", '"+p', opts)
+map("n", "U", "<C-r>", opts)
 
 -- Buffers mappings
 leadermap("n", "bh", ":bp<cr>", opts)
